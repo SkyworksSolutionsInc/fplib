@@ -1,0 +1,181 @@
+xrun(64): 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	24.09-s001: Started on Oct 14, 2024 at 12:17:26 PDT
+xrun
+	-f ../rtl/fplib.f
+		../../fplib/rtl/fp_macros.sv
+		../../fplib/rtl/clip.sv
+		../../fplib/rtl/fp_if.sv
+		../../fplib/rtl/fp_resize.sv
+		../../fplib/rtl/fp_convert.sv
+		../../fplib/rtl/fp_op_full.sv
+		../../fplib/rtl/fp_op.sv
+	./interp_fplib.sv
+	-top top_interp_fplib
+	-xmlibdirname ./build
+	-vlogcontrolrelax NOTDOT
+	-access +rwc
+	-input "@database -open -shm ./build/waves.shm -default"
+	-input "@probe -create -all -depth all"
+	-input @run;
+	-input @exit;
+file: ../../fplib/rtl/fp_macros.sv
+file: ../../fplib/rtl/clip.sv
+	module worklib.clip_signed:sv
+		errors: 0, warnings: 0
+	module worklib.clip_unsigned:sv
+		errors: 0, warnings: 0
+file: ../../fplib/rtl/fp_if.sv
+	interface worklib.ufp:sv
+		errors: 0, warnings: 0
+	interface worklib.sfp:sv
+		errors: 0, warnings: 0
+	interface worklib.ufp_arr:sv
+		errors: 0, warnings: 0
+	interface worklib.sfp_arr:sv
+		errors: 0, warnings: 0
+	interface worklib.ufp_arr2:sv
+		errors: 0, warnings: 0
+	interface worklib.sfp_arr2:sv
+		errors: 0, warnings: 0
+file: ../../fplib/rtl/fp_resize.sv
+	module worklib.ufp_resize_ind:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_resize_ind:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_resize:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_resize:sv
+		errors: 0, warnings: 0
+file: ../../fplib/rtl/fp_convert.sv
+	module worklib.creal_to_sfp:sv
+		errors: 0, warnings: 0
+	module worklib.creal_to_ufp:sv
+		errors: 0, warnings: 0
+	module worklib.real_to_sfp:sv
+		errors: 0, warnings: 0
+	module worklib.real_to_ufp:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_to_sfp_full:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_to_ufp_full:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_to_sfp_ind:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_to_ufp_ind:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_to_sfp:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_to_ufp:sv
+		errors: 0, warnings: 0
+file: ../../fplib/rtl/fp_op_full.sv
+	module worklib.ufp_add_full:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_add_full:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_sub_full:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_sub_full:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_mult_full:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_mult_full:sv
+		errors: 0, warnings: 0
+file: ../../fplib/rtl/fp_op.sv
+	module worklib.ufp_add_ind:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_add_ind:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_sub_ind:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_sub_ind:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_mult_ind:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_mult_ind:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_add:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_add:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_sub:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_sub:sv
+		errors: 0, warnings: 0
+	module worklib.ufp_mult:sv
+		errors: 0, warnings: 0
+	module worklib.sfp_mult:sv
+		errors: 0, warnings: 0
+file: ./interp_fplib.sv
+	module worklib.interp_fplib:sv
+		errors: 0, warnings: 0
+	module worklib.top_interp_fplib:sv
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		top_interp_fplib
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.real_to_sfp:sv <0x47ac7f9b>
+			streams:   1, words:  3251
+		worklib.real_to_sfp:sv <0x412bd899>
+			streams:   1, words:  3251
+		worklib.real_to_sfp:sv <0x2a1afab0>
+			streams:   1, words:  3251
+		worklib.sfp_resize_ind:sv <0x351915b9>
+			streams:   3, words:   955
+		worklib.sfp_resize_ind:sv <0x3aee563c>
+			streams:   3, words:   944
+		worklib.sfp_resize_ind:sv <0x7b626ab1>
+			streams:   3, words:   908
+		worklib.sfp_add_full:sv <0x598f49be>
+			streams:   1, words:   509
+		worklib.sfp_add_ind:sv <0x3d73f5fe>
+			streams:   0, words:     0
+		worklib.sfp_mult_full:sv <0x1a82537f>
+			streams:   1, words:   390
+		worklib.interp_fplib:sv <0x736fd174>
+			streams:   0, words:     0
+		worklib.top_interp_fplib:sv <0x55bacb62>
+			streams:   4, words:  2708
+		worklib.sfp:sv <0x0bc6d9dc>
+			streams:   2, words:   671
+		worklib.sfp:sv <0x5261acea>
+			streams:   2, words:   671
+		worklib.sfp:sv <0x7a0581c5>
+			streams:   2, words:   671
+		worklib.sfp:sv <0x3bc47b58>
+			streams:   2, words:   671
+		worklib.sfp:sv <0x4baf3878>
+			streams:   2, words:   644
+		worklib.sfp:sv <0x18a3ce90>
+			streams:   2, words:   732
+		worklib.sfp:sv <0x07b9d06f>
+			streams:   2, words:   644
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		              Instances  Unique
+		Modules:             14       9
+		Interfaces:           8       1
+		Registers:           25       6
+		Scalar wires:        22       -
+		Vectored wires:      24       -
+		Always blocks:        3       1
+		Initial blocks:       1       1
+		Cont. assignments:   27      18
+		Pseudo assignments:   3       -
+	Writing initial simulation snapshot: worklib.top_interp_fplib:sv
+Loading snapshot worklib.top_interp_fplib:sv .................... Done
+xcelium> source /home/samimia/tools/xcelium2409/tools/xcelium/files/xmsimrc
+xcelium> database -open -shm ./build/waves.shm -default
+Created default SHM database ./build/waves.shm
+xcelium> probe -create -all -depth all
+Created probe 1
+xcelium> run;
+y (int) =   149504
+y (float) = 9.125000
+Simulation complete via $finish(1) at time 10 NS + 0
+./interp_fplib.sv:43         $finish();
+xcelium> exit;
+TOOL:	xrun(64)	24.09-s001: Exiting on Oct 14, 2024 at 12:17:42 PDT  (total: 00:00:16)

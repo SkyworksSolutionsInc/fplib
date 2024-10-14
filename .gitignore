@@ -1,0 +1,12 @@
+build*/
+.simvision*/
+.env/
+.venv/
+env/
+venv/
+ENV/
+.direnv/
+
+# *.log
+*.history
+*.Identifier
