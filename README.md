@@ -18,8 +18,6 @@ In RTL simulations, the interface also holds the float (`real`) representation o
 The target users are ASIC/FPGA designers developing DSP (digital signal processing) circuits in SystemVerilog, such as optimized datapaths with custom word-length adders and multipliers. The usage of this libraray promotes more generic and parameterizable designs with fewer bugs and much more readable code.
 
 
-
-
 This library has been specifically tested with the following simulation tools:
 - Cadence Xcelium 23.03 and 24.09
 
@@ -29,10 +27,17 @@ As well as the following backend tools:
 
 Other commercial tools are likely to work, but Verilator does not support fplib due to [this long-standing issue](https://github.com/verilator/verilator/issues/1593).
 
+## Licensing and Contributions
+
 This project is provided under the terms of the Apache V2.0 license, which allows for commercial, closed-source use. See the LICENSE file for more info.
 
-Pull requests to support additional tools / bug fixes / new features are welcomed.
+Please file an issue to report any bugs. Pull requests to support new features or fix issues are very welcomed. Potential areas of improvement include:
 
+- Expand the list of operations, e.g. right/left shift (divide/mult by powers of 2), three operand add/mult/sub
+- Add option for rounding instead of truncating LSBs (floor)
+- Improve array support (e.g. add/mult/sub/resize for sfp_arr / ufp_arr)
+- Improve test bench (check clipping bit)
+- Check comptaiblity with other vendor tools (Synopsys, etc.)
 
 ## Motivation
 
