@@ -300,6 +300,7 @@ assign x.val = '{'{24'd0, 24'd1, 24'd2}, '{24'd0, 24'd1, 24'd2}};
 
 Currently, none of the modules are designed to take in a `*fp_arr` or `*fp_arr2`.
 
+
 ## Tests
 
 A basic [SV test bench](./tests/test_fplib.sv) has been written to verify the correctness of the implemented modules against a reference SV model. The script [gen_pkg.m](./tests/gen_pkg.m) generates a SV package which contains the randomized word lengths and real numbers used inside the TB. The test output is checked in as [xrun.log](./tests/xrun.log).
