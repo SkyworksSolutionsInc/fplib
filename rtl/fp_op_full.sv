@@ -8,6 +8,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // ======================================================================================
 
+`include "fp_macros.svh"
+
 // Addition of ufp signals with full precision.
 // Output must have the correct iw/qw for a full width operation:
 // out.iw = max(in1.iw, in2.iw) + 1 and out.qw = max(in1.qw, in2.qw)

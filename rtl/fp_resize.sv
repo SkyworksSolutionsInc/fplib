@@ -8,6 +8,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // ======================================================================================
 
+`include "fp_macros.svh"
+
 // Change the # of int/frac bits of a ufp signal (with a clipping indicator)
 // - Decreasing # frac bits: truncates LSBs (floor toward -inf)
 // - Increasing # frac bits: pads zero LSBs

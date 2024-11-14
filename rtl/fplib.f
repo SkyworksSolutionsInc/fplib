@@ -1,4 +1,5 @@
-../../fplib/rtl/fp_macros.sv
+../../fplib/rtl/fp_macros.svh
++incdir+../../fplib/rtl/
 ../../fplib/rtl/clip.sv
 ../../fplib/rtl/fp_if.sv
 ../../fplib/rtl/fp_resize.sv

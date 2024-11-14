@@ -2,16 +2,16 @@
 
 ## Intro
 
-fplib is a synthesizable SystemVerilog library for working with fixed-point (FP) numbers. This library abstracts out the error-prone task of working with FP numbers, such as keeping track of the integer and fractional bits (the binary point) when doing add/multiply operations. 
+fplib is a synthesizable SystemVerilog library for working with fixed-point (FP) numbers. This library abstracts out the error-prone task of working with FP numbers, such as keeping track of the integer and fractional bits (the binary point) when doing add/multiply operations.
 
-fplib lets you effortlessly: 
+fplib lets you effortlessly:
 
 - perform add, subtract, or multiply operations
 - change the number of int/frac bits ('resize') to increase or decrease the range/resolution (clipping if necessary)
 - convert float constants (e.g. FIR/IIR filter coefficients) to FP
-- access the float representation of FP numbers in simulations 
+- access the float representation of FP numbers in simulations
 
-fplib works by (ab)using SystemVerilog interfaces to encapsulate a normal `logic` vector as well as the parameters for the number of int/frac bits into [a single object](./rtl/fp_if.sv) which can be passed through modules (in the absence of proper language support like [in VHDL](https://github.com/FPHDL/fphdl)). An effort is made to minimize the usage of macros while still keeping the syntax as clean as possible within the (many) limitations of the SV language. In RTL simulations, the interface also holds a float (`real`) representation of the FP number, which is a significant time-saver when using the waveform viewer during debug / DV. 
+fplib works by (ab)using SystemVerilog interfaces to encapsulate a normal `logic` vector as well as the parameters for the number of int/frac bits into [a single object](./rtl/fp_if.sv) which can be passed through modules (in the absence of proper language support like [in VHDL](https://github.com/FPHDL/fphdl)). An effort is made to minimize the usage of macros while still keeping the syntax as clean as possible within the (many) limitations of the SV language. In RTL simulations, the interface also holds a float (`real`) representation of the FP number, which is a significant time-saver when using the waveform viewer during debug / DV.
 
 The target users are ASIC/FPGA designers developing DSP (digital signal processing) circuits in SystemVerilog, such as optimized datapaths with custom word-length adders and multipliers. The usage of this library promotes more generic and parameterizable designs with fewer bugs and much more readable code.
 
@@ -32,7 +32,7 @@ See [interp_fplib.sv](./examples/interp_fplib.sv) for the full code with comment
 
 ## Licensing and Contributions
 
-This project is provided under the terms of the Apache V2.0 license, which allows for commercial, closed-source use. See the LICENSE file for more info. 
+This project is provided under the terms of the Apache V2.0 license, which allows for commercial, closed-source use. See the LICENSE file for more info.
 
 Please file an issue to report any bugs. Pull requests are very welcome. Potential areas of improvement include:
 
@@ -42,7 +42,7 @@ Please file an issue to report any bugs. Pull requests are very welcome. Potenti
 - Improve test bench (check clipping bit)
 - Check compatibility with other vendor tools (Synopsys, etc.)
 
-## Tool Support  
+## Tool Support
 
 This library has been specifically tested with the following simulation tools:
 - Cadence Xcelium 23.03 and 24.09
@@ -56,6 +56,8 @@ Other commercial tools are likely to work, but Verilator does not support fplib 
 ## Integration Guide
 
 - To use this library, it is usually sufficient to pass the file list [fplib.f](./rtl/fplib.f) to the tool with `-F ./rtl/fplib.f`.
+
+- You may also use [fusec](https://github.com/olofk/fusesoc). See [fplib.core](./fplib.core).
 
 - For Cadence Xcelium (simulator), you might need to pass the flag `-vlogcontrolrelax NOTDOT` depending on the version and other flags used.
 
@@ -115,7 +117,7 @@ parameter real my_float = 0.84234;
 creal_to_sfp #(my_float) inst (x);  // same as creal_to_sfp #(.float(0.84234)) inst (.fp(x));
 ```
 If we had passed a number outside the range of a s1.23 (e.g. 2.0), an `$error()` would have been thrown. There is also a `creal_to_ufp` module for unsigned numbers.
-  
+
 In test bench code, you can round a `real` variable to an `sfp` or `ufp`:
 
 ```SystemVerilog
@@ -126,9 +128,9 @@ real_to_sfp inst (my_float, x);
 
 `real_to_sfp` and `real_to_ufp` are not synthesizable.
 
-### Read back as float  
+### Read back as float
 
-The float representation of the fixed point number is held in `fval` (a `real`) for easier debug/DV. 
+The float representation of the fixed point number is held in `fval` (a `real`) for easier debug/DV.
 
 In RTL simulations (but not gate-level sims), `fval` can be accessed in test benches and visualized in the waveform viewer. If there are any X or Z bits in `val`, `fval` is set to float NaN.
 

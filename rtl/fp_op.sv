@@ -8,6 +8,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // ======================================================================================
 
+`include "fp_macros.svh"
+
 // Addition of ufp signals followed by resizing (equivalant to ufp_add_full + ufp_resize_ind)
 module ufp_add_ind # (
     parameter   clip = 1    // (if reducing iw) 0 = wrap, 1 = clip

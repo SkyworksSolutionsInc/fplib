@@ -9,6 +9,7 @@
 // SPDX-License-Identifier: Apache-2.0
 // ================================================================================
 
+`include "fp_macros.svh"
 
 // xrun -f test_fplib.f -top test_fplib -xmlibdirname ./build -vlogcontrolrelax NOTDOT -svseed random -access +rwc -input "@database -open -shm ./build/waves.shm -default" -input "@probe -create -all -depth all" -input "@run;" -input "@exit;"
 

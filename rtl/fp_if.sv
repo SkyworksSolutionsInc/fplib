@@ -8,6 +8,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // ================================================================================
 
+`include "fp_macros.svh"
+
 // ufp 'signal' : unsigned fixed point scaler
 interface ufp #(
     parameter int signed iw = 1,          // number of integer bits (sign bit included)
@@ -17,7 +19,7 @@ interface ufp #(
     logic [wl-1:0] val; // holds the fixed point scaler
 
     // SV limitation workaround:
-    // create dummy signals for macros in fp_macros.sv to indirectly access qw/wl
+    // create dummy signals for macros in fp_macros.svh to indirectly access qw/wl
     // and checked signedness (ufp vs sfp) during elaboration using $bits(dummy_*)
     // assigned value is only useful in waveform viewer for seeing the word lengths
     wire [qw:0] dummy_qw = (qw+1)'(qw);

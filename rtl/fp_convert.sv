@@ -8,6 +8,8 @@
 // SPDX-License-Identifier: Apache-2.0
 // ======================================================================================
 
+`include "fp_macros.svh"
+
 // Convert a real parameter (constant) to a sfp signal by rounding.
 // This module is typically synthesizable, but Cadence Genus might
 // require this tcl command: "set_db hdl_enable_real_support true".
@@ -172,6 +174,7 @@ module sfp_to_ufp_ind # (
     ufp.out   out,       // output ufp signal
     output    clipping   // clipping indicator (active-high)
 );
+    wire clip1, clip2;
 
     sfp #(`fp_iw(out) + 1, `fp_qw(out)) tmp();
     sfp_resize_ind #(.clip(clip)) u_resize (.in(in), .out(tmp), .clipping(clip1));
