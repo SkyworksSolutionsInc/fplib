@@ -2,12 +2,6 @@ CAPI=2:
 name: ::fplib:1.0.0
 description: "fixed-point math library for SystemVerilog (synthesizable)"
 
-provider:
-  name    : github
-  user    : SkyworksSolutionsInc
-  repo    : fplib
-  version : v1.0.0
-
 filesets:
 
   rtl:
